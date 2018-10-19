@@ -1,0 +1,202 @@
+@import 'mixins';
+@import 'normalize';
+@import 'typography';
+@import 'base';
+@import 'form-select-style';
+
+.upsell {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 100px;
+  padding: 0 100px 50px 100px;
+  @include e('title') {
+    position: relative;
+    margin: 0 0 2rem 0;
+    font-size: 2rem;
+  }
+  @include e('image') { max-width: 120px; }
+}
+
+.inventory {
+  padding: 70px 70px 100px 100px;
+  overflow: hidden;
+  @include e('title') {
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 70px;
+  }
+  @include e('items') {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 6vw;
+  }
+}
+
+.template {
+  position: relative;
+  @include e('overlay') {
+    background: transparentize($cement, .15);
+    position: absolute;
+    bottom: 0;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    @include e('button') {
+      margin-bottom: 20px;
+      @extend %button;
+    }
+    @include e('link') {
+      font: .9em $title;
+      padding-bottom: 4px;
+      letter-spacing: 2px;
+      border-bottom: 1px dotted darken($chalk, 45%);
+    }
+  }
+  &:hover &__overlay {
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+  }
+  @include e('screenshot') {
+    @extend %reset;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    border: 1px solid darken($cement, 10%);
+    transition: all .2s;
+    &:hover {
+      box-shadow: 0 0 20px 0 lighten($chalk, 30%);
+      transition: all .2s;
+    }
+    &:before {
+      content: "\2022\2022\2022";
+      display: block;
+      padding-left: 10px;
+      line-height: 20px;
+      font-family: 'Gotham SSm',sans-serif;
+      font-size: 10px;
+      letter-spacing: .2em;
+    }
+  }
+  @include e('info') {
+    @include e('title') {
+      font: bold 1.2em $title;
+      letter-spacing: 2px;
+      @extend %reset;
+    }
+  }
+}
+
+.addon {
+  padding: 0 150px 70px 100px;
+  text-align: center;
+  @include e('title') {
+    font-size: 1.3em;
+    letter-spacing: 2px;
+  }
+  @include e('content') {
+    margin-top: 0;
+  }
+}
+
+.wp-services {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  @include e('title') {
+    padding: 70px 0 50px 100px;
+    font-size: 1.4em;
+    margin: 0;
+  }
+  @include e('terms') {
+    padding: 70px 100px;
+  }
+}
+
+.instant-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  grid-gap: 30px;
+  padding: 0 0 100px 100px;
+}
+
+.wp-service {
+  position: relative;
+  padding: 20px 25px 20px 25px;
+  border-radius: 4px;
+  border: 1px solid darken($cement, 10%);
+  transition: all .2s ease-in-out;
+  &:hover {
+    transition: all .2s ease-in-out;
+  }
+  @include e('title') {
+    position: relative;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  @include e('content') {
+    @extend %reset;
+  }
+  @include e('image') {
+    max-width: 30px;
+    vertical-align: middle;
+    margin: 0 10px 7px 0;
+  }
+  @include e('actions') {
+    background: transparentize(#FFF, .2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+  }
+  &:hover &__actions {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+  }
+  @include e('button') { @extend %button; }
+}
+
+.annual-services {
+  padding: 0 100px 70px 70px;
+  @include e('title') {
+    font-size: 1.4em;
+  }
+  @include e('offer') {
+    font-size: 1.2em;
+  }
+  @include e('button') {
+    @extend %button;
+  }
+}
+
+/*
+      Helpers
+*/
+
+.spaced { letter-spacing: 2px; }
+
+.slide-ready {
+  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  opacity: 0;
+  transform: translate3d(0px, 100px, 0px);
+}
+
+.slide-up {
+  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
