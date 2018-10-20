@@ -1,7 +1,7 @@
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BrowserSyncPlugin  = require('browser-sync-webpack-plugin');
+const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
