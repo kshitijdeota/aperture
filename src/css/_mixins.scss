@@ -6,20 +6,39 @@ $cement: #FAFAFA;
 $blood: #AF1402;
 
 @mixin e($e) {
-    &__#{$e} {
-        @content;
-    }
+	&__#{$e} {
+		@content;
+	}
 }
-
 @mixin m($m) {
-    &--#{$m} {
-        @content;
-    }
+	&--#{$m} {
+		@content;
+	}
 }
 
 %reset { margin: 0; padding: 0; }
 
-%button { background: darken($chalk, 45%); background-image: linear-gradient(to bottom, darken($chalk, 45%), darken($chalk, 50%)); border: 1px solid darken($chalk, 50%); border-radius: 4px; display: inline-block; padding: 10px 15px; margin-right: 10px; color: $cement !important; font: 10px $title; text-transform: uppercase; letter-spacing: 2px; transition: all .2s ease-in-out; box-shadow: 0 5px 10px 0 lighten($chalk, 10%); cursor: pointer;
-  &:hover { transition: all .2s ease-in-out; box-shadow: 0 10px 20px 0 lighten($chalk, 10%); }
-  &:active { transition: all .2s ease-in-out; box-shadow: 0 0 5px 0 lighten($chalk, 10%); }
+%button {
+	background: darken($chalk, 45%);
+	background-image: linear-gradient(to bottom, darken($chalk, 45%), darken($chalk, 50%));
+	border: 1px solid darken($chalk, 50%);
+	border-radius: 4px;
+	display: inline-block;
+	padding: 10px 15px;
+	margin-right: 10px;
+	color: $cement !important;
+	font: 10px $title;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition: all .2s ease-in-out;
+	box-shadow: 0 5px 10px 0 lighten($chalk, 10%);
+	cursor: pointer;
+	&:hover {
+		transition: all .2s ease-in-out;
+		box-shadow: 0 10px 20px 0 lighten($chalk, 10%);
+	}
+	&:active {
+		transition: all .2s ease-in-out;
+		box-shadow: 0 0 5px 0 lighten($chalk, 10%);
+	}
 }
