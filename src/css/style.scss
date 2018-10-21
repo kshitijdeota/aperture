@@ -1,2 +1,13 @@
-@import 'bootstrap';
-@import 'mixins';
+@import "~bootstrap/scss/bootstrap";
+@import "mixins";
+
+.page {
+  background: salmon;
+  @include e('title') {
+    color: darkred;
+  }
+  @include e('content') {
+    color: black;
+  }
+}
+

@@ -1,17 +1,19 @@
 {
   "name": "kdpixels",
   "version": "1.0.0",
-  "description": "Official portfolio of Kshitij Deota",
+  "description": "Aperture - Photography HTML Template",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack-dev-server"
   },
   "keywords": [
-    "kdpixels",
+    "aperture",
     "kshitij",
     "deota",
-    "portfolio"
+    "photography",
+    "portfolio",
+    "kdpixels"
   ],
   "author": "Kshitij Deota",
   "license": "MIT",
@@ -32,6 +34,11 @@
     "path": "0.12.7",
     "sass-loader": "6.0.7",
     "style-loader": "0.20.3",
-    "webpack": "3.11.0",
+    "webpack": "3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1"
   }
 }

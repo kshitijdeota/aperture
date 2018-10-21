@@ -1,25 +1,34 @@
-const path = require('path');
+const path               = require('path');
 const BrowserSyncPlugin  = require('browser-sync-webpack-plugin');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack            = require('webpack');
 
 module.exports = {
+    devtool: 'source-map',
     entry: './src/js/script.js',
     output: {
         path: path.resolve('dist'),
-        filename: 'js/bundle.js',
+        filename: 'js/[name].bundle.js',
         publicPath: '/'
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules)/,
                 loader: 'babel-loader',
+                exclude: /node_modules/,
                 query: {
                     presets: ['es2015']
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader'
+                ]
             },
             {
                 test: /\.scss$/,
@@ -66,6 +75,14 @@ module.exports = {
             host: 'localhost',
             port: 8081,
             server: { baseDir: ['dist'] }
+        }),
+        new webpack.SourceMapDevToolPlugin({
+            exclude: ['popper.js', 'jquery.js']
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
         })
     ]
 }
